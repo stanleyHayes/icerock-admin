@@ -13,6 +13,7 @@ import ProductsPage from "./pages/products/ProductsPage";
 import ProductDetailPage from "./pages/products/ProductDetailPage";
 import UpdateProductPage from "./pages/products/UpdateProductPage";
 import CreateProductPage from "./pages/products/CreateProductPage";
+import SignUpPage from "./pages/authentication/SignUpPage";
 
 function App() {
   return (
@@ -40,11 +41,11 @@ function App() {
             </Route>
 
             <Route path="/auth/login" exact={true}>
-              <DashboardPage />
+              <SignUpPage />
             </Route>
 
             <Route path="/auth/register" exact={true}>
-              <DashboardPage />
+              <SignUpPage />
             </Route>
 
             <Route path="/" exact={true}>

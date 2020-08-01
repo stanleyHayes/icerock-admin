@@ -2,7 +2,7 @@ import React from "react";
 import {Grid, Toolbar} from "@material-ui/core";
 import {makeStyles} from "@material-ui/core/styles";
 import {Link, useHistory} from "react-router-dom";
-import { VerifiedUser} from "@material-ui/icons";
+import {VerifiedUser, ExitToApp, LockOpen} from "@material-ui/icons";
 
 import "../../App.css";
 
@@ -33,6 +33,14 @@ function DesktopHeader() {
 
     const handleAccountClicked = () => {
         history.push('/account')
+    }
+
+    const handleChangePasswordClicked = () => {
+        history.push('/change-password')
+    }
+
+    const handleLogoutClicked = () => {
+        history.push('/login')
     }
 
     return (
@@ -89,6 +97,14 @@ function DesktopHeader() {
                     <Grid item={true}>
                         <VerifiedUser onClick={handleAccountClicked} className={classes.icon}/>
                     </Grid>
+
+                    <Grid item={true}>
+                        <LockOpen onClick={handleChangePasswordClicked} className={classes.icon}/>
+                    </Grid>
+                </Grid>
+
+                <Grid item={true}>
+                    <ExitToApp onClick={handleLogoutClicked} className={classes.icon}/>
                 </Grid>
 
             </Grid>

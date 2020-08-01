@@ -124,6 +124,45 @@ function DrawerContent({handleDrawerClose}) {
                         </div>
                     </Grid>
                 </Grid>
+
+                <Grid className={classes.gridContainer} container={true} justify="flex-start">
+                    <Grid item={true} xs={12}>
+                        <div className={classes.content}>
+                            <p>
+                                <Link to="/edit-profile"
+                                      className={`${classes.button}  ${classes.link} center-align margin-vertical-small uppercase font-weight-bold`}>
+                                    Edit Profile
+                                </Link>
+                            </p>
+
+                            <Divider variant="fullWidth"/>
+
+                            <p>
+                                <Link to="/account"
+                                      className={`${classes.button}  ${classes.link} center-align margin-vertical-small uppercase font-weight-bold`}>
+                                    Account
+                                </Link>
+                            </p>
+
+                            <Divider variant="fullWidth"/>
+
+                            <p>
+                                <Link to="/change-password"
+                                      className={`${classes.button}  ${classes.link} center-align margin-vertical-small uppercase font-weight-bold`}>
+                                    Change Password
+                                </Link>
+                            </p>
+                            <Divider variant="fullWidth"/>
+
+                            <p>
+                                <Link to="/login"
+                                      className={`${classes.button}  ${classes.link} center-align margin-vertical-small uppercase font-weight-bold`}>
+                                    Logout
+                                </Link>
+                            </p>
+                        </div>
+                    </Grid>
+                </Grid>
             </Container>
         </div>
     )

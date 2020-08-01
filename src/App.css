@@ -493,3 +493,51 @@ html, body {
 .font-size-huge{
   font-size: 72px;
 }
+
+
+.d-flex{
+  display: flex;
+}
+
+.flex-column{
+  flex-direction: column;
+}
+
+.flex-grow-1{
+  flex-grow: 1;
+}
+
+.height-100{
+  height: 100%;
+}
+
+.info{
+  position: relative;
+  height: 100%;
+  overflow: hidden;
+  background: #333333;
+}
+
+.info:after{
+  top: 0;
+  bottom: 0;
+  z-index: -1;
+  left: 0;
+  background-size: cover;
+  right: 0;
+  content: "";
+  position: absolute;
+  background:  url("/images/hero-image-big.jpg") no-repeat center, linear-gradient(to right, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.8));
+}
+
+.padding-small{
+  padding: 8px;
+}
+
+.padding-medium{
+  padding: 16px;
+}
+
+.padding-bottom-medium{
+  padding-bottom: 16px;
+}
