@@ -1,10 +1,11 @@
 html, body {
   font-family: 'Poppins', sans-serif;
+  box-sizing: border-box;
 }
 
 .nav-link {
   text-decoration: none;
-  color: darkblue;
+  font-family: 'Poppins', sans-serif;
 }
 
 .text-align-center {
@@ -515,7 +516,7 @@ html, body {
   position: relative;
   height: 100%;
   overflow: hidden;
-  background: #333333;
+  background:  url("/images/hero-image-big.jpg") no-repeat center, linear-gradient(to right, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.4));
 }
 
 .info:after{
@@ -527,7 +528,7 @@ html, body {
   right: 0;
   content: "";
   position: absolute;
-  background:  url("/images/hero-image-big.jpg") no-repeat center, linear-gradient(to right, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.8));
+  background:  url("/images/hero-image-big.jpg") no-repeat center, linear-gradient(to right, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.4));
 }
 
 .padding-small{
@@ -540,4 +541,12 @@ html, body {
 
 .padding-bottom-medium{
   padding-bottom: 16px;
+}
+
+.center-vertical-align{
+  vertical-align: center;
+}
+
+.inline-block{
+  display: inline-block;
 }

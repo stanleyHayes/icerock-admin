@@ -36,18 +36,18 @@ function DesktopHeader() {
     }
 
     const handleChangePasswordClicked = () => {
-        history.push('/change-password')
+        history.push('/auth/change-password')
     }
 
     const handleLogoutClicked = () => {
-        history.push('/login')
+        history.push('/auth/login')
     }
 
     return (
         <Toolbar variant="regular">
             <Grid container={true} justify="center" alignItems="center">
 
-                <Grid item={true} lg={2} container={true}>
+                <Grid item={true} lg={1} container={true}>
                     <Grid item={true}>
                         <Link to="/">
                             <img
@@ -63,49 +63,50 @@ function DesktopHeader() {
 
                 <Grid item={true} container={true} lg={7} justify="center" spacing={4}>
                     <Grid item={true}>
-                        <Link to="/" className="nav-link uppercase font-size-medium font-weight-bold text">
+                        <Link to="/" className="nav-link uppercase font-size-small font-weight-bold text">
                             Dashboard
                         </Link>
                     </Grid>
 
                     <Grid item={true}>
-                        <Link to="/orders" className="nav-link uppercase font-size-medium font-weight-bold text">
+                        <Link to="/orders" className="nav-link uppercase font-size-small font-weight-bold text">
                             Orders
                         </Link>
                     </Grid>
 
                     <Grid item={true}>
-                        <Link to="/whatsnew" className="nav-link uppercase font-size-medium font-weight-bold text">
+                        <Link to="/whatsnew" className="nav-link uppercase font-size-small font-weight-bold text">
                             What's new
                         </Link>
                     </Grid>
 
                     <Grid item={true}>
-                        <Link to="/products" className="nav-link uppercase font-size-medium font-weight-bold text">
+                        <Link to="/products" className="nav-link uppercase font-size-small font-weight-bold text">
                             Products
                         </Link>
                     </Grid>
 
                     <Grid item={true}>
-                        <Link to="/archive" className="nav-link uppercase font-size-medium font-weight-bold text">
+                        <Link to="/archive" className="nav-link uppercase font-size-small font-weight-bold text">
                             Archive
                         </Link>
                     </Grid>
                 </Grid>
 
-                <Grid item={true} container={true} lg={1} justify="space-around">
+                <Grid item={true} container={true} lg={1} spacing={1} justify="space-around">
                     <Grid item={true}>
                         <VerifiedUser onClick={handleAccountClicked} className={classes.icon}/>
                     </Grid>
 
-                    <Grid item={true}>
+                    <Grid item={true} >
                         <LockOpen onClick={handleChangePasswordClicked} className={classes.icon}/>
+                    </Grid>
+
+                    <Grid item={true}>
+                        <ExitToApp onClick={handleLogoutClicked} className={classes.icon}/>
                     </Grid>
                 </Grid>
 
-                <Grid item={true}>
-                    <ExitToApp onClick={handleLogoutClicked} className={classes.icon}/>
-                </Grid>
 
             </Grid>
         </Toolbar>

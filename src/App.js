@@ -14,6 +14,8 @@ import ProductDetailPage from "./pages/products/ProductDetailPage";
 import UpdateProductPage from "./pages/products/UpdateProductPage";
 import CreateProductPage from "./pages/products/CreateProductPage";
 import SignUpPage from "./pages/authentication/SignUpPage";
+import SignInPage from "./pages/authentication/SignInPage";
+import ForgotPasswordPage from "./pages/authentication/ForgotPasswordPage";
 
 function App() {
   return (
@@ -33,7 +35,7 @@ function App() {
             </Route>
 
             <Route path="/auth/forgot-password" exact={true}>
-              <DashboardPage />
+              <ForgotPasswordPage />
             </Route>
 
             <Route path="/auth/reset-password" exact={true}>
@@ -41,7 +43,7 @@ function App() {
             </Route>
 
             <Route path="/auth/login" exact={true}>
-              <SignUpPage />
+              <SignInPage />
             </Route>
 
             <Route path="/auth/register" exact={true}>

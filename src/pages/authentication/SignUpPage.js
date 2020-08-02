@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import {CardContent, Container, Grid, Card, TextField, Button} from "@material-ui/core";
+import {Container, Grid, Card, TextField, Button} from "@material-ui/core";
 import {Visibility, VisibilityOff} from "@material-ui/icons";
 import {makeStyles} from "@material-ui/styles";
 import {Link} from "react-router-dom";
@@ -9,8 +9,8 @@ const SignUpPage = () => {
     const useStyles = makeStyles(theme => {
         return {
             button: {
-                paddingTop: 4,
-                paddingBottom: 4,
+                paddingTop: 16,
+                paddingBottom: 16,
                 fontFamily: "Poppins",
                 fontWeight: "bold",
                 backgroundColor: "darkblue",
@@ -25,7 +25,7 @@ const SignUpPage = () => {
                 fontWeight: "bold",
                 color: "darkblue"
             }, root: {
-                minHeight: "100vh",
+                minHeight: "85vh",
                 display: "flex",
                 alignItems: "center"
             }
@@ -66,7 +66,7 @@ const SignUpPage = () => {
         setVisibility(!visible);
     }
     return (
-        <div className={`${classes.root} dark-grey`}>
+        <div className={`${classes.root} dark-grey padding-vertical-huge`}>
             <Container>
                 <Grid container={true} justify="center">
                     <Grid item={true} xs={12} md={8}>
@@ -74,7 +74,7 @@ const SignUpPage = () => {
                             <div>
                                 <Grid container={true} spacing={2}>
                                     <Grid item={true} xs={12} md={6}>
-                                        <div className="d-flex flex-column height-100 info">
+                                        <div className="d-flex flex-column height-100 info padding-horizontal-medium">
                                             <div>
                                                 <p className="text-align-center font-size-large font-weight-bold white-text">Ice
                                                     Rock</p>
@@ -200,7 +200,7 @@ const SignUpPage = () => {
                                                 <TextField
                                                     name="password"
                                                     fullWidth={true}
-                                                    type="password"
+                                                    type={visible ? "text": "password"}
                                                     margin="dense"
                                                     onChange={handleChange}
                                                     helperText={error.password}
@@ -217,7 +217,7 @@ const SignUpPage = () => {
                                                     <TextField
                                                         name="confirmPassword"
                                                         fullWidth={true}
-                                                        type="password"
+                                                        type={visible ? "text": "password"}
                                                         margin="dense"
                                                         onChange={handleConfirmPasswordChange}
                                                         helperText={error.confirmPassword}
@@ -245,9 +245,10 @@ const SignUpPage = () => {
                                                 </Button>
 
                                                 <Button
+                                                    className={classes.textButton}
                                                     variant="text"
-                                                    fullWidth={true} size="small" onClick={handleSubmit}>
-                                                    <Link to="/login" className="nav-link">
+                                                    fullWidth={true} size="small">
+                                                    <Link to="/auth/login" className={`${classes.textButton} nav-link`}>
                                                         Already a member?
                                                     </Link>
                                                 </Button>
