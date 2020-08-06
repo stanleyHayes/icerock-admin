@@ -82,7 +82,7 @@ function WhatsNewPage({news}) {
                                 <Grid item={true} xs={12}>
                                     <p className="font-weight-bold font-size-medium uppercase">Filters</p>
                                 </Grid>
-                                <Grid item={true} xs={6}>
+                                <Grid item={true} xs={12}  md={6}>
                                     <p className="font-weight-bold font-size-small uppercase">Status</p>
                                     <Select
                                         fullWidth={true}
