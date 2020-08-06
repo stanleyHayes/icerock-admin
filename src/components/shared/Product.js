@@ -29,7 +29,7 @@ const Product = ({product}) => {
             <CardMedia component="img" src={image} />
             <CardContent>
                 <div className="center-vertical-align">
-                    <span className="uppercase font-weight-bold grey-text font-size-small">{price}GHS</span>
+                    <span className="uppercase font-weight-bold grey-text font-size-medium">{price}GHS</span>
                     <span className="separator">|</span>
                     <span className="inline-block">
                         <Rating
@@ -37,11 +37,9 @@ const Product = ({product}) => {
                             value={averageRating}
                             max={5}
                             precision={.1}
-                            size="small"/>
+                            size="large"/>
                     </span>
-
                 </div>
-
             </CardContent>
             <Divider variant="fullWidth" />
             <CardActions>
