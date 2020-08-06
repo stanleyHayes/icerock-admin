@@ -76,9 +76,10 @@ const Order = ({order}) => {
                                 <Chip
                                     className={classes.chip}
                                     key={index}
-                                    size="small"
+                                    size="medium"
                                     color="primary"
-                                    icon={<Avatar src={getProductAvatar(product.name)} /> } label={product.name} variant="outlined" />
+                                    icon={<Avatar src={getProductAvatar(product.name)} /> } label={product.name}
+                                    variant="default" />
                             )
                         })
                     }
