@@ -24,8 +24,8 @@ const Product = ({product}) => {
 
     const {price, averageRating, name, image, status} = product;
 
-    const getProductAvatar = (name) =>{
-        switch (name){
+    const getProductAvatar = (name) => {
+        switch (name) {
             case "Sachet Water":
                 return `${process.env.PUBLIC_URL}/images/sachet.svg`;
 
@@ -65,9 +65,14 @@ const Product = ({product}) => {
                 </CardContent>
                 <Divider variant="fullWidth"/>
                 <CardActions>
-                    <Button className={classes.button} fullWidth={true} endIcon={<Info className={classes.icon}/>}
-                            size="small">
-                        <Link className="nav-link" to={`/products/${name}`}>
+                    <Button
+                        className={classes.button}
+                        fullWidth={true}
+                        endIcon={<Info className={classes.icon}/>}
+                        size="small">
+                        <Link
+                            className="nav-link"
+                            to={`/products/${name}`}>
                             View Product Details
                         </Link>
                     </Button>

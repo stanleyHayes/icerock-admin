@@ -3,7 +3,8 @@ import {ORDERS} from "./orders.data";
 const INITIAL_STATE = {
     orders: ORDERS,
     error: null,
-    loading: false
+    loading: false,
+    order: ORDERS[0]
 }
 
 const ordersReducer = (state = INITIAL_STATE, action) => {

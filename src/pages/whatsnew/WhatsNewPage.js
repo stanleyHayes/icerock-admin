@@ -64,6 +64,7 @@ function WhatsNewPage({news}) {
                         </Grid>
                         <Grid item={true} xs={3}>
                             <Button
+                                fullWidth={true}
                                 onClick={handleAddClick}
                                 className={classes.createButton}
                                 size="small"

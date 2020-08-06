@@ -31,7 +31,7 @@ const Order = ({order}) => {
 
     const classes = useStyles();
 
-    const {orderId, _id, createdAt, products, status, owner, avatar} = order;
+    const {orderID, _id, createdAt, products, status, owner, avatar} = order;
 
     const getProductAvatar = (name) =>{
         switch (name){
@@ -67,7 +67,7 @@ const Order = ({order}) => {
                 <CardContent>
 
                     <p className="font-weight-bold font-size-small uppercase text">Order ID</p>
-                    <p className="font-size-medium text">{orderId}</p>
+                    <p className="font-size-medium text">{orderID}</p>
 
                     <p className="font-size-medium text font-size-small">{products.length} Items</p>
                     {
@@ -88,7 +88,7 @@ const Order = ({order}) => {
                 <Divider variant="fullWidth"/>
                 <CardActions>
                     <Button className={classes.button} endIcon={<ArrowForward className={classes.icon} />} size="small" fullWidth={true} variant="text">
-                        <Link className="text-decoration-none" to={`/orders/${_id}`}>
+                        <Link className="text-decoration-none" to={`/orders/${orderID}`}>
                             View Order
                         </Link>
                     </Button>

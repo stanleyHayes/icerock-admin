@@ -554,6 +554,7 @@ html, body {
 
 .shadow {
     transition: all 700ms ease-in-out;
+    overflow: hidden;
 }
 
 .shadow:hover {
