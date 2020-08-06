@@ -1,10 +1,11 @@
 import React, {useState} from "react";
 import Layout from "../../components/layout/Layout";
-import {Button, Container, Grid, makeStyles} from "@material-ui/core";
+import {Button, Card, CardContent, Container, Divider, Grid, makeStyles, MenuItem, Select} from "@material-ui/core";
 import {connect} from "react-redux";
 import Information from "../../components/shared/Information";
 import {Add} from "@material-ui/icons";
 import CreateInfo from "../../components/shared/CreateInfo";
+import {Pagination} from "@material-ui/lab";
 
 function WhatsNewPage({news}) {
 
@@ -24,6 +25,24 @@ function WhatsNewPage({news}) {
     });
 
     const classes = useStyles();
+
+    const [sort, setSort] = useState("desc");
+    const [status, setStatus] = useState("all");
+    const [page, setPage] = useState(1);
+
+    // let query = `?sort=createdAt:${sort}${type === "all"? "": `&type=${type}`}${status === "all"? "": `&status=${status}`}&page=${page}`;
+
+    const handleStatusChange = (event) => {
+        setStatus(event.target.value);
+    }
+
+    const handleSortChange = (event) => {
+        setSort(event.target.value);
+    }
+
+    const handlePageChange = (event, page) => {
+        setPage(page);
+    }
 
     const [open, setOpen] = useState(false);
 
@@ -54,6 +73,57 @@ function WhatsNewPage({news}) {
                             </Button>
                         </Grid>
                     </Grid>
+
+                    <Divider className={classes.divider} variant="fullWidth"/>
+                    <Card variant="outlined" elevation={0} raised={false}>
+                        <CardContent>
+                            <Grid container={true} spacing={2}>
+                                <Grid item={true} xs={12}>
+                                    <p className="font-weight-bold font-size-medium uppercase">Filters</p>
+                                </Grid>
+                                <Grid item={true} xs={6}>
+                                    <p className="font-weight-bold font-size-small uppercase">Status</p>
+                                    <Select
+                                        fullWidth={true}
+                                        variant="outlined"
+                                        margin="dense"
+                                        label="Order Status"
+                                        onChange={handleStatusChange}
+                                        value={status}>
+                                        <MenuItem value="all">
+                                            All
+                                        </MenuItem>
+                                        <MenuItem value="URGENT">
+                                            Urgent
+                                        </MenuItem>
+                                        <MenuItem value="CASUAL">
+                                            Casual
+                                        </MenuItem>
+                                    </Select>
+                                </Grid>
+
+                                <Grid item={true} xs={12} md={6}>
+                                    <p className="font-weight-bold font-size-small uppercase">Sort</p>
+                                    <Select
+                                        fullWidth={true}
+                                        variant="outlined"
+                                        margin="dense"
+                                        label="Sort Order"
+                                        onChange={handleSortChange} value={sort}>
+                                        <MenuItem value="desc">
+                                            Descending
+                                        </MenuItem>
+                                        <MenuItem value="asc">
+                                            Ascending
+                                        </MenuItem>
+                                    </Select>
+                                </Grid>
+                            </Grid>
+                        </CardContent>
+                    </Card>
+                    <Divider className={classes.divider} variant="fullWidth"/>
+
+
                     <Grid container={true} spacing={3}>
                         {
                             (!news.length) ? (
@@ -75,6 +145,23 @@ function WhatsNewPage({news}) {
                             )
                         }
                     </Grid>
+
+                    <div className="padding-vertical-large">
+                        <Container>
+                            <Grid container={true} justify="center">
+                                <Grid item={true} xs={12} md={6}>
+                                    <Pagination
+                                        variant="outlined"
+                                        count={10}
+                                        defaultPage={1}
+                                        page={page}
+                                        size="medium"
+                                        onChange={handlePageChange}
+                                    />
+                                </Grid>
+                            </Grid>
+                        </Container>
+                    </div>
 
                     <CreateInfo open={open} handleClose={handleClose} />
 
