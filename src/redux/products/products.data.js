@@ -9,7 +9,7 @@ export const PRODUCTS = [
     },
     {
         averageRating: 4.2,
-        name: "Bottle Water",
+        name: "Bottled Water",
         price: "100.00",
         status: "In Stock",
         image: `${process.env.PUBLIC_URL}/images/hero-image-big.jpg`,

@@ -1,10 +1,44 @@
-import React from "react";
+import React, {useState} from "react";
 import Layout from "../../components/layout/Layout";
-import {Container, Grid} from "@material-ui/core";
+import {Container, Grid, makeStyles, Divider, MenuItem, Select, Card, CardContent} from "@material-ui/core";
 import {connect} from "react-redux";
 import Order from "../../components/shared/Order";
+import {Pagination} from "@material-ui/lab";
 
 function OrdersPage({orders}) {
+
+    const useStyles = makeStyles({
+        divider: {
+            marginTop: 16,
+            marginBottom: 16
+        }
+    });
+
+    const classes = useStyles();
+
+    const [sort, setSort] = useState("desc");
+    const [type, setType] = useState("all");
+    const [status, setStatus] = useState("all");
+    const [page, setPage] = useState(1);
+
+    let query = `?sort=createdAt:${sort}${type === "all"? "": `&type=${type}`}${status === "all"? "": `&status=${status}`}&page=${page}`;
+
+    const handleStatusChange = (event) => {
+        setStatus(event.target.value);
+    }
+
+    const handleTypeChange = (event) => {
+        setType(event.target.value);
+    }
+
+    const handleSortChange = (event) => {
+        setSort(event.target.value);
+    }
+
+    const handlePageChange = (event, page) => {
+        setPage(page);
+    }
+
 
     return (
         <Layout>
@@ -15,6 +49,83 @@ function OrdersPage({orders}) {
                             <p className="uppercase margin-vertical-large sub-header">Orders</p>
                         </Grid>
                     </Grid>
+
+                    <Divider className={classes.divider} variant="fullWidth"/>
+                    <Card variant="outlined" elevation={0} raised={false}>
+                        <CardContent>
+                            <Grid container={true} spacing={2}>
+                                <Grid item={true} xs={12}>
+                                    <p className="font-weight-bold font-size-medium uppercase">Filters</p>
+                                </Grid>
+                                <Grid item={true} xs={6} md={4}>
+                                    <p className="font-weight-bold font-size-small uppercase">Status</p>
+                                    <Select
+                                        fullWidth={true}
+                                        variant="outlined"
+                                        margin="dense"
+                                        label="Order Status"
+                                        onChange={handleStatusChange}
+                                        value={status}>
+                                        <MenuItem value="all">
+                                            All
+                                        </MenuItem>
+                                        <MenuItem value="PREPARED">
+                                            Prepared
+                                        </MenuItem>
+                                        <MenuItem value="TRANSIT">
+                                            In Transit
+                                        </MenuItem>
+                                        <MenuItem value="DELIVERED">
+                                            Delivered
+                                        </MenuItem>
+                                    </Select>
+                                </Grid>
+
+                                <Grid item={true} xs={6} md={4}>
+                                    <p className="font-weight-bold font-size-small uppercase">Type</p>
+                                    <Select
+                                        fullWidth={true}
+                                        variant="outlined"
+                                        margin="dense"
+                                        label="Order Type"
+                                        onChange={handleTypeChange} value={type}>
+                                        <MenuItem value="all">
+                                            All
+                                        </MenuItem>
+                                        <MenuItem value="SACHET">
+                                            Sachet
+                                        </MenuItem>
+                                        <MenuItem value="BOTTLE">
+                                            Bottle
+                                        </MenuItem>
+                                        <MenuItem value="GALLON">
+                                            Gallon
+                                        </MenuItem>
+                                    </Select>
+                                </Grid>
+
+                                <Grid item={true} xs={12} md={4}>
+                                    <p className="font-weight-bold font-size-small uppercase">Sort</p>
+                                    <Select
+                                        fullWidth={true}
+                                        variant="outlined"
+                                        margin="dense"
+                                        label="Sort Order"
+                                        onChange={handleSortChange} value={sort}>
+                                        <MenuItem value="desc">
+                                            Descending
+                                        </MenuItem>
+                                        <MenuItem value="asc">
+                                            Ascending
+                                        </MenuItem>
+                                    </Select>
+                                </Grid>
+                            </Grid>
+                        </CardContent>
+                    </Card>
+                    <Divider className={classes.divider} variant="fullWidth"/>
+
+
                     <Grid container={true} spacing={3}>
                         {
                             (!orders.length) ? (
@@ -36,7 +147,26 @@ function OrdersPage({orders}) {
                             )
                         }
                     </Grid>
+
+                    <div className="padding-vertical-large">
+                        <Container>
+                            <Grid container={true} justify="center">
+                                <Grid item={true} xs={12} md={6}>
+                                    <Pagination
+                                        variant="outlined"
+                                        count={10}
+                                        defaultPage={1}
+                                        page={page}
+                                        size="medium"
+                                        onChange={handlePageChange}
+                                    />
+                                </Grid>
+                            </Grid>
+                        </Container>
+                    </div>
+
                 </Container>
+
             </div>
         </Layout>
     )

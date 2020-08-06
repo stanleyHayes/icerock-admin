@@ -30,21 +30,26 @@ const Information = ({info}) => {
 
     const {title, description, status, createdAt} = info;
     return (
-        <Card elevation={1} raised={true} variant="elevation">
-            <CardHeader
-                avatar={<Avatar>
-                    <Info
-                        className={status === "urgent" ? classes.urgent : classes.normal}
-                    />
-                </Avatar>}
-                title={status} subheader={new Date(createdAt).toDateString()}/>
-            <Divider variant="fullWidth"/>
-            <CardContent>
-                <p className="uppercase font-size-small font-weight-bold grey-text">{status}</p>
-                <p className="font-size-medium font-weight-bold grey-text">{title}</p>
-                <p className="font-size-small grey-text">{description}</p>
-            </CardContent>
-        </Card>
+        <div className="shadow">
+            <Card
+                elevation={0}
+                raised={false}
+                variant="outlined">
+                <CardHeader
+                    avatar={<Avatar>
+                        <Info
+                            className={status === "urgent" ? classes.urgent : classes.normal}
+                        />
+                    </Avatar>}
+                    title={status} subheader={new Date(createdAt).toDateString()}/>
+                <Divider variant="fullWidth"/>
+                <CardContent>
+                    <p className="uppercase font-size-small font-weight-bold grey-text">{status}</p>
+                    <p className="font-size-medium font-weight-bold grey-text">{title}</p>
+                    <p className="font-size-small grey-text">{description}</p>
+                </CardContent>
+            </Card>
+        </div>
     )
 }
 
