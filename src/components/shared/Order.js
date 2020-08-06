@@ -19,6 +19,12 @@ const Order = ({order}) => {
                 color: "darkblue",
                 fontWeight: "bold",
                 fontFamily: "Poppins"
+            },
+            chip: {
+                marginLeft: 4,
+                marginRight: 4,
+                marginTop: 4,
+                marginBottom: 4
             }
         }
     });
@@ -68,6 +74,7 @@ const Order = ({order}) => {
                         products.map((product, index) => {
                             return (
                                 <Chip
+                                    className={classes.chip}
                                     key={index}
                                     size="small"
                                     color="primary"

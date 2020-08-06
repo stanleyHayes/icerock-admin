@@ -138,6 +138,7 @@ const SignUpPage = () => {
                                         <div className="padding-medium">
                                             <div>
                                                 <TextField
+                                                    required={true}
                                                     name="name"
                                                     fullWidth={true}
                                                     type="text"
@@ -153,6 +154,7 @@ const SignUpPage = () => {
                                             </div>
                                             <div>
                                                 <TextField
+                                                    required={true}
                                                     name="email"
                                                     fullWidth={true}
                                                     type="email"
@@ -168,6 +170,7 @@ const SignUpPage = () => {
                                             </div>
                                             <div>
                                                 <TextField
+                                                    required={true}
                                                     name="username"
                                                     fullWidth={true}
                                                     type="text"
@@ -183,6 +186,7 @@ const SignUpPage = () => {
                                             </div>
                                             <div>
                                                 <TextField
+                                                    required={true}
                                                     name="phone"
                                                     fullWidth={true}
                                                     type="tel"
@@ -198,9 +202,10 @@ const SignUpPage = () => {
                                             </div>
                                             <div>
                                                 <TextField
+                                                    required={true}
                                                     name="password"
                                                     fullWidth={true}
-                                                    type={visible ? "text": "password"}
+                                                    type={visible ? "text" : "password"}
                                                     margin="dense"
                                                     onChange={handleChange}
                                                     helperText={error.password}
@@ -215,9 +220,10 @@ const SignUpPage = () => {
                                             <Grid container={true} spacing={1} alignItems="center">
                                                 <Grid item={true} xs={10}>
                                                     <TextField
+                                                        required={true}
                                                         name="confirmPassword"
                                                         fullWidth={true}
-                                                        type={visible ? "text": "password"}
+                                                        type={visible ? "text" : "password"}
                                                         margin="dense"
                                                         onChange={handleConfirmPasswordChange}
                                                         helperText={error.confirmPassword}
@@ -235,24 +241,24 @@ const SignUpPage = () => {
                                                         onClick={handleVisibilityChange}
                                                         startIcon={visible ? <VisibilityOff/> : <Visibility/>}/>
                                                 </Grid>
-                                                <Button
-                                                    className={classes.button}
-                                                    variant="outlined"
-                                                    fullWidth={true}
-                                                    size="large"
-                                                    onClick={handleSubmit}>
-                                                    Sign Up
-                                                </Button>
-
-                                                <Button
-                                                    className={classes.textButton}
-                                                    variant="text"
-                                                    fullWidth={true} size="small">
-                                                    <Link to="/auth/login" className={`${classes.textButton} nav-link`}>
-                                                        Already a member?
-                                                    </Link>
-                                                </Button>
                                             </Grid>
+                                            <Button
+                                                className={classes.button}
+                                                variant="outlined"
+                                                fullWidth={true}
+                                                size="large"
+                                                onClick={handleSubmit}>
+                                                Sign Up
+                                            </Button>
+
+                                            <Button
+                                                className={classes.textButton}
+                                                variant="text"
+                                                fullWidth={true} size="small">
+                                                <Link to="/auth/login" className={`${classes.textButton} nav-link`}>
+                                                    Already a member?
+                                                </Link>
+                                            </Button>
                                         </div>
                                     </Grid>
                                 </Grid>

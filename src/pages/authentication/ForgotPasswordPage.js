@@ -39,7 +39,7 @@ function ForgotPasswordPage() {
             backgroundColor: "#2b3137",
         },
         button: {
-            backgroundColor: "purple",
+            backgroundColor: "darkblue",
             marginTop: 20,
             marginBottom: 20,
             paddingTop: 16,

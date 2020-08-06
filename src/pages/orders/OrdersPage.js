@@ -1,9 +1,10 @@
 import React, {useState} from "react";
 import Layout from "../../components/layout/Layout";
-import {Container, Grid, makeStyles, Divider, MenuItem, Select, Card, CardContent} from "@material-ui/core";
+import {Container, Grid, makeStyles, Divider, MenuItem, Select, Card, CardContent, TextField, Button} from "@material-ui/core";
 import {connect} from "react-redux";
 import Order from "../../components/shared/Order";
 import {Pagination} from "@material-ui/lab";
+import {Search} from "@material-ui/icons";
 
 function OrdersPage({orders}) {
 
@@ -11,6 +12,14 @@ function OrdersPage({orders}) {
         divider: {
             marginTop: 16,
             marginBottom: 16
+        },
+        searchButton: {
+            paddingTop: 6,
+            paddingBottom: 6,
+            backgroundColor: "darkblue",
+            fontFamily: "Poppins",
+            fontWeight: "bold",
+            color: "white"
         }
     });
 
@@ -20,8 +29,9 @@ function OrdersPage({orders}) {
     const [type, setType] = useState("all");
     const [status, setStatus] = useState("all");
     const [page, setPage] = useState(1);
+    const [searchQuery, setSearchQuery] = useState("");
 
-    let query = `?sort=createdAt:${sort}${type === "all"? "": `&type=${type}`}${status === "all"? "": `&status=${status}`}&page=${page}`;
+    // let query = `?sort=createdAt:${sort}${type === "all"? "": `&type=${type}`}${status === "all"? "": `&status=${status}`}&page=${page}`;
 
     const handleStatusChange = (event) => {
         setStatus(event.target.value);
@@ -39,14 +49,46 @@ function OrdersPage({orders}) {
         setPage(page);
     }
 
+    const handleSearchClicked = (event) => {
+        event.preventDefault();
+    }
+
+    const handleSearchQueryChange = (event) => {
+        setSearchQuery(event.target.value);
+    }
 
     return (
         <Layout>
             <div className="padding-vertical-huge">
                 <Container>
-                    <Grid container={true} spacing={3}>
-                        <Grid item={true} xs={12}>
+                    <Grid container={true} spacing={3} alignItems="center">
+                        <Grid item={true} xs={12} md={6} lg={5}>
                             <p className="uppercase margin-vertical-large sub-header">Orders</p>
+                        </Grid>
+
+                        <Grid item={true} xs={7} md={5}>
+                            <TextField
+                                placeholder="Search Order ID"
+                                label="Search"
+                                onChange={handleSearchQueryChange}
+                                fullWidth={true}
+                                variant="outlined"
+                                value={searchQuery}
+                                margin="dense"
+                                name="search"
+                            />
+                        </Grid>
+
+                        <Grid item={true} xs={5} md={2}>
+                            <Button
+                                onClick={handleSearchClicked}
+                                className={classes.searchButton}
+                                size="small"
+                                variant="outlined"
+                                fullWidth={true}
+                                endIcon={<Search />}>
+                                Search
+                            </Button>
                         </Grid>
                     </Grid>
 
