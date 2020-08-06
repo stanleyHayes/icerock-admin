@@ -153,7 +153,7 @@ function WhatsNewPage({news}) {
                                 <Grid item={true} xs={12} md={6}>
                                     <Pagination
                                         variant="outlined"
-                                        count={10}
+                                        count={5}
                                         defaultPage={1}
                                         page={page}
                                         size="medium"
