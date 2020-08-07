@@ -44,7 +44,6 @@ function ProductDetailPage({product, loading}) {
 
     const classes = useStyles();
 
-
     const {reviews, name, status, summary, averageRating, price, image, images, purchases} = product;
 
     return (
@@ -53,11 +52,11 @@ function ProductDetailPage({product, loading}) {
                 {loading && <LinearProgress variant="query"/>}
                 <Container>
                     <Grid container={true} alignItems="center" justify="center">
-                        <Grid item={true} xs={4} md={4}>
-                            <p className="uppercase margin-vertical-large sub-header">Orders</p>
+                        <Grid item={true} xs={5} md={4}>
+                            <p className="uppercase margin-vertical-large sub-header">Product Detail</p>
                         </Grid>
 
-                        <Grid item={true} xs={8} md={3}>
+                        <Grid item={true} xs={7} md={3}>
                             <Button
                                 className={classes.editButton}
                                 size="small"
