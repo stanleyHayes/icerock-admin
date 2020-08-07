@@ -99,7 +99,7 @@ function DrawerContent({handleDrawerClose}) {
                             <Divider variant="fullWidth"/>
 
                             <p>
-                                <Link to="/whatsnew"
+                                <Link to="/whats-new"
                                       className={`${classes.button}  ${classes.link} center-align margin-vertical-small uppercase font-weight-bold`}>
                                     What's New
                                 </Link>

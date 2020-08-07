@@ -95,28 +95,6 @@ export const ORDERS = [
                 name: "Gallon Water"
             }
         ],
-        orderId: "HSK12345",
-        status: "In Transit",
-        completed: true,
-        createdAt: "2020-09-01",
-        issues: []
-    },
-    {
-        owner: {
-            name: "Stanley Hayford",
-            avatar: `${process.env.PUBLIC}/images/hero-image-big.jpg`
-        },
-        products: [
-            {
-                name: "Pure Water"
-            },
-            {
-                name: "Bottled Water"
-            },
-            {
-                name: "Gallon Water"
-            }
-        ],
         orderID: "HSK12345",
         status: "In Transit",
         completed: true,
@@ -161,7 +139,29 @@ export const ORDERS = [
                 name: "Gallon Water"
             }
         ],
-        orderId: "HSK12345",
+        orderID: "HSK12345",
+        status: "In Transit",
+        completed: true,
+        createdAt: "2020-09-01",
+        issues: []
+    },
+    {
+        owner: {
+            name: "Stanley Hayford",
+            avatar: `${process.env.PUBLIC}/images/hero-image-big.jpg`
+        },
+        products: [
+            {
+                name: "Pure Water"
+            },
+            {
+                name: "Bottled Water"
+            },
+            {
+                name: "Gallon Water"
+            }
+        ],
+        orderID: "HSK12345",
         status: "In Transit",
         completed: true,
         createdAt: "2020-09-01",

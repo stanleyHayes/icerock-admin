@@ -16,6 +16,7 @@ import CreateProductPage from "./pages/products/CreateProductPage";
 import SignUpPage from "./pages/authentication/SignUpPage";
 import SignInPage from "./pages/authentication/SignInPage";
 import ForgotPasswordPage from "./pages/authentication/ForgotPasswordPage";
+import "react-image-gallery/styles/css/image-gallery.css";
 
 function App() {
   return (
@@ -74,11 +75,11 @@ function App() {
               <UpdateProductPage />
             </Route>
 
-            <Route path="/new/product" exact={true}>
+            <Route path="/product/new" exact={true}>
               <CreateProductPage />
             </Route>
 
-            <Route path="/whatsnew" exact={true}>
+            <Route path="/whats-new" exact={true}>
               <WhatsNewPage />
             </Route>
           </Switch>

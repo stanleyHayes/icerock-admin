@@ -75,7 +75,7 @@ function DesktopHeader() {
                     </Grid>
 
                     <Grid item={true}>
-                        <Link to="/whatsnew" className="nav-link uppercase font-size-small font-weight-bold text">
+                        <Link to="/whats-new" className="nav-link uppercase font-size-small font-weight-bold text">
                             What's new
                         </Link>
                     </Grid>

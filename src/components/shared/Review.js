@@ -30,7 +30,7 @@ const Review = ({review}) => {
                         value={rating}
                         max={5}
                         precision={.1}
-                        size="large"/>
+                        size="small"/>
                 </CardContent>
             </Card>
         </div>

@@ -26,7 +26,7 @@ function OrdersPage({orders}) {
     const classes = useStyles();
 
     const [sort, setSort] = useState("desc");
-    const [type, setType] = useState("all");
+    const [product, setProduct] = useState("all");
     const [status, setStatus] = useState("all");
     const [page, setPage] = useState(1);
     const [searchQuery, setSearchQuery] = useState("");
@@ -37,8 +37,8 @@ function OrdersPage({orders}) {
         setStatus(event.target.value);
     }
 
-    const handleTypeChange = (event) => {
-        setType(event.target.value);
+    const handleProductChange = (event) => {
+        setProduct(event.target.value);
     }
 
     const handleSortChange = (event) => {
@@ -124,13 +124,13 @@ function OrdersPage({orders}) {
                                 </Grid>
 
                                 <Grid item={true} xs={6} md={4}>
-                                    <p className="font-weight-bold font-size-small uppercase">Type</p>
+                                    <p className="font-weight-bold font-size-small uppercase">Product</p>
                                     <Select
                                         fullWidth={true}
                                         variant="outlined"
                                         margin="dense"
-                                        label="Order Type"
-                                        onChange={handleTypeChange} value={type}>
+                                        label="Product"
+                                        onChange={handleProductChange} value={product}>
                                         <MenuItem value="all">
                                             All
                                         </MenuItem>

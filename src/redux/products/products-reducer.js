@@ -2,7 +2,7 @@ import {PRODUCTS} from "./products.data";
 
 const INITIAL_STATE = {
     products: PRODUCTS,
-    selectedProduct: null,
+    product: PRODUCTS[0],
     error: null,
     loading: false
 }
