@@ -10,6 +10,8 @@ import {
     Button, makeStyles
 } from "@material-ui/core";
 import CreateProductInfo from "../../components/shared/CreateProductInfo";
+import UploadProductImage from "../../components/shared/UploadProductImage";
+import UploadProductMedia from "../../components/shared/UploadProductMedia";
 
 function CreateProductPage() {
 
@@ -34,7 +36,7 @@ function CreateProductPage() {
     }
 
     const handlePreviousClick = () => {
-        setStep(step => step + 1);
+        setStep(step => step - 1);
     }
 
     const getStepComponent = (step) => {
@@ -42,9 +44,9 @@ function CreateProductPage() {
             case 0:
                 return <CreateProductInfo/>;
             case 1:
-                return "";
+                return <UploadProductImage />;
             case 2:
-                return "";
+                return <UploadProductMedia />;
             default:
                 return <CreateProductInfo/>
         }
@@ -55,7 +57,7 @@ function CreateProductPage() {
         <Layout>
             <div className={classes.container}>
                 <Container>
-                    <Grid container={true} alignItems="center">
+                    <Grid container={true} alignItems="center" justify="center">
                         <Grid item={true} xs={12} md={7}>
                             <p className="uppercase margin-vertical-large sub-header">New Product</p>
                         </Grid>
@@ -102,7 +104,6 @@ function CreateProductPage() {
                             } steps={3}
                                 variant="progress"
                                 elevation={1}
-
                             />
                         </Grid>
                     </Grid>
