@@ -22,6 +22,18 @@ function CreateProductPage() {
                 backgroundColor: "#eeeeee",
                 paddingTop: 30,
                 paddingBottom: 30
+            },
+            nextButton: {
+                fontFamily: "Poppins",
+                color: "white",
+                fontWeight: "bold",
+                backgroundColor: "darkgreen"
+            },
+            prevButton: {
+                fontFamily: "Poppins",
+                color: "white",
+                fontWeight: "bold",
+                backgroundColor: "darkblue"
             }
         }
     });
@@ -88,21 +100,28 @@ function CreateProductPage() {
 
                         <Grid item={true} xs={12} md={7}>
                             <MobileStepper
-                                position="static"
+                                position="bottom"
                                 activeStep={step}
                                 backButton={
                                     <Button
+                                        className={classes.prevButton}
+                                        variant="outlined"
+                                        size="large"
                                         disabled={step === 0}
                                         onClick={handlePreviousClick}>
                                         Previous
                                     </Button>
                                 } nextButton={
                                 <Button
+                                    className={classes.nextButton}
+                                    variant="outlined"
+                                    size="large"
+                                    disabled={step === 2}
                                     onClick={handleNextClick}>
-                                    {step === 2 ? "Submit" : "Next"}
+                                    { "Next"}
                                 </Button>
                             } steps={3}
-                                variant="progress"
+                                variant="text"
                                 elevation={1}
                             />
                         </Grid>

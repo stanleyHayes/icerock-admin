@@ -23,7 +23,7 @@ const UploadProductImage = () => {
         event.preventDefault();
 
         const formData = new FormData();
-        formData.append("file", file);
+        formData.append("product-image", file);
     }
 
     const useStyles = makeStyles(theme => {
@@ -35,12 +35,14 @@ const UploadProductImage = () => {
                     backgroundColor: "darkblue",
                     paddingTop: 4,
                     paddingBottom: 4,
+                    marginBottom: 16,
                     '&:hover': {
                         color: "darkblue"
                     }
                 },
                 uploadImageButton:
                     {
+                        marginBottom: 16,
                         color: "white",
                         fontWeight: "bold",
                         fontFamily: "Poppins",
@@ -62,8 +64,7 @@ const UploadProductImage = () => {
                     display: "none"
                 }
             }
-        }
-        )
+        })
     ;
 
     const classes = useStyles();
@@ -71,6 +72,36 @@ const UploadProductImage = () => {
 
     return (
         <div>
+            {
+                (!file) ? (
+                    <div>
+                        <input onChange={handleFileSelected} className={classes.input} type="file"
+                               accept="image/*" id="product-image"/>
+                        <label htmlFor="product-image">
+                            <Button
+                                component="div"
+                                fullWidth={true}
+                                color="primary"
+                                variant="outlined"
+                                className={classes.selectImageButton}
+                                endIcon={<AddAPhoto className={classes.icon}/>}>
+                                Select
+                            </Button>
+                        </label>
+                    </div>
+
+                ) : (
+                    <Button
+                        onClick={handleFileUploadClick}
+                        fullWidth={true}
+                        color="primary"
+                        variant="outlined"
+                        className={classes.uploadImageButton}
+                        endIcon={<CloudUpload className={classes.icon}/>}>
+                        Upload
+                    </Button>
+                )
+            }
             <Card elevation={0} raised={true} variant="outlined">
                 <CardMedia
                     component="img"
@@ -88,39 +119,6 @@ const UploadProductImage = () => {
                         )
                     }
                 </CardContent>
-                <Divider variant="fullWidth"/>
-                <CardActions>
-                    {
-                        (!file) ? (
-                            <div>
-                                <input onChange={handleFileSelected} className={classes.input} type="file"
-                                       accept="image/*" id="product-image"/>
-                                <label htmlFor="product-image">
-                                    <Button
-                                        component="div"
-                                        fullWidth={true}
-                                        color="primary"
-                                        variant="outlined"
-                                        className={classes.selectImageButton}
-                                        endIcon={<AddAPhoto className={classes.icon}/>}>
-                                        Select
-                                    </Button>
-                                </label>
-                            </div>
-
-                        ) : (
-                            <Button
-                                onClick={handleFileUploadClick}
-                                fullWidth={true}
-                                color="primary"
-                                variant="outlined"
-                                className={classes.uploadImageButton}
-                                endIcon={<CloudUpload className={classes.icon}/>}>
-                                Upload
-                            </Button>
-                        )
-                    }
-                </CardActions>
             </Card>
         </div>
     )

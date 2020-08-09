@@ -31,7 +31,7 @@ const Order = ({order}) => {
 
     const classes = useStyles();
 
-    const {orderID, _id, createdAt, products, status, owner, avatar} = order;
+    const {orderID, createdAt, products, status, owner, avatar} = order;
 
     const getProductAvatar = (name) =>{
         switch (name){

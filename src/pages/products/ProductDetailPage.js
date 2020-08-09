@@ -8,14 +8,13 @@ import {
     CardMedia,
     makeStyles,
     Button,
-    LinearProgress,
-    TextField
+    LinearProgress
 } from "@material-ui/core";
 import {Rating} from "@material-ui/lab";
 import Review from "../../components/shared/Review";
 import ImageGallery from "react-image-gallery";
 import {connect} from "react-redux";
-import {Add, Edit, Search} from "@material-ui/icons";
+import {Edit} from "@material-ui/icons";
 import {Link} from "react-router-dom";
 
 function ProductDetailPage({product, loading}) {
@@ -61,7 +60,7 @@ function ProductDetailPage({product, loading}) {
                                 className={classes.editButton}
                                 size="small"
                                 variant="outlined"
-                                fullWidth={true} endIcon={<Edit />}>
+                                fullWidth={true} endIcon={<Edit/>}>
                                 <Link
                                     className="text-decoration-none white-text font-weight-bold"
                                     to={`/products/${name}/edit`}>

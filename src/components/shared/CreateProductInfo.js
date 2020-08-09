@@ -1,7 +1,37 @@
 import React, {useState} from "react";
-import {Card, CardContent, MenuItem, Select, TextField} from "@material-ui/core";
+import {Card, CardContent, Grid, MenuItem, Select, TextField, Button, makeStyles} from "@material-ui/core";
 
 const CreateProductInfo = () => {
+
+    const useStyles = makeStyles(theme => {
+        return {
+            button: {
+                color: "white",
+                fontWeight: "bold",
+                fontFamily: "Poppins",
+                backgroundColor: "darkblue",
+                paddingTop: 8,
+                paddingBottom: 8,
+                '&:hover': {
+                    color: "darkblue"
+                },
+                marginTop: 8,
+                marginBottom: 8
+            },
+            icon: {
+                color: "white",
+                '&:hover': {
+                    color: "darkgreen"
+                }
+            },
+            input: {
+                display: "none"
+            }
+        }
+    });
+
+    const classes = useStyles();
+
 
     const [product, setProduct] = useState({status: "IN_STOCK"});
     const [error, setError] = useState({});
@@ -12,6 +42,12 @@ const CreateProductInfo = () => {
         setProduct({...product, [event.target.name]: event.target.value});
     }
 
+    const handleProductInfoSubmit = event => {
+        event.preventDefault();
+        if (!name) {
+            setError({...error, name: "Field required"});
+        }
+    }
 
     return (
         <Card elevation={0} raised={false} variant="outlined">
@@ -77,6 +113,19 @@ const CreateProductInfo = () => {
                         <MenuItem value="COMING_SOON">Coming Soon</MenuItem>
                     </Select>
                 </div>
+
+                <Grid container={true} justify="center">
+                    <Grid item={true} xs={12} md={4}>
+                        <Button
+                            fullWidth={true}
+                            className={classes.button}
+                            onClick={handleProductInfoSubmit}
+                            size="large"
+                            variant="text">
+                            Confirm Product Info
+                        </Button>
+                    </Grid>
+                </Grid>
             </CardContent>
         </Card>
     )
