@@ -1,5 +1,14 @@
 import React from "react";
-import {Card, CardContent, Divider, CardHeader, CardActions, Button, Avatar, Chip} from "@material-ui/core";
+import {
+    Card,
+    CardContent,
+    Divider,
+    CardHeader,
+    CardActions,
+    Button,
+    Avatar,
+    Chip
+} from "@material-ui/core";
 import {ArrowForward} from "@material-ui/icons";
 import {Link} from "react-router-dom";
 import {makeStyles} from "@material-ui/styles";
@@ -25,6 +34,10 @@ const Order = ({order}) => {
                 marginRight: 4,
                 marginTop: 4,
                 marginBottom: 4
+            },
+            logo: {
+                width: 25,
+                height: 25
             }
         }
     });
@@ -33,8 +46,8 @@ const Order = ({order}) => {
 
     const {orderID, createdAt, products, status, owner, avatar} = order;
 
-    const getProductAvatar = (name) =>{
-        switch (name){
+    const getProductAvatar = (name) => {
+        switch (name) {
             case "Sachet Water":
                 return `${process.env.PUBLIC_URL}/images/sachet.svg`;
 
@@ -68,7 +81,6 @@ const Order = ({order}) => {
 
                     <p className="font-weight-bold font-size-small uppercase text">Order ID</p>
                     <p className="font-size-medium text">{orderID}</p>
-
                     <p className="font-size-medium text font-size-small">{products.length} Items</p>
                     {
                         products.map((product, index) => {
@@ -78,8 +90,13 @@ const Order = ({order}) => {
                                     key={index}
                                     size="medium"
                                     color="primary"
-                                    icon={<Avatar src={getProductAvatar(product.name)} /> } label={product.name}
-                                    variant="default" />
+                                    icon={
+                                        <Avatar
+                                            className={classes.logo}
+                                            src={getProductAvatar(product.name)}/>
+                                    }
+                                    label={product.name}
+                                    variant="default"/>
                             )
                         })
                     }
@@ -88,7 +105,8 @@ const Order = ({order}) => {
                 </CardContent>
                 <Divider variant="fullWidth"/>
                 <CardActions>
-                    <Button className={classes.button} endIcon={<ArrowForward className={classes.icon} />} size="small" fullWidth={true} variant="text">
+                    <Button className={classes.button} endIcon={<ArrowForward className={classes.icon}/>} size="small"
+                            fullWidth={true} variant="text">
                         <Link className="text-decoration-none" to={`/orders/${orderID}`}>
                             View Order
                         </Link>
