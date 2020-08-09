@@ -17,75 +17,85 @@ import SignUpPage from "./pages/authentication/SignUpPage";
 import SignInPage from "./pages/authentication/SignInPage";
 import ForgotPasswordPage from "./pages/authentication/ForgotPasswordPage";
 import "react-image-gallery/styles/css/image-gallery.css";
+import ReviewsPage from "./pages/reviews/ReviewsPage";
+import MessagesPage from "./pages/messages/MessagesPage";
 
 function App() {
-  return (
-      <BrowserRouter>
-        <ScrollToTop>
-          <Switch>
-            <Route path="/account" exact={true}>
-              <AccountPage />
-            </Route>
+    return (
+        <BrowserRouter>
+            <ScrollToTop>
+                <Switch>
+                    <Route path="/account" exact={true}>
+                        <AccountPage/>
+                    </Route>
 
-            <Route path="/archive" exact={true}>
-              <ArchivePage />
-            </Route>
+                    <Route path="/archive" exact={true}>
+                        <ArchivePage/>
+                    </Route>
 
-            <Route path="/auth/change-password" exact={true}>
-              <ChangePasswordPage />
-            </Route>
+                    <Route path="/auth/change-password" exact={true}>
+                        <ChangePasswordPage/>
+                    </Route>
 
-            <Route path="/auth/forgot-password" exact={true}>
-              <ForgotPasswordPage />
-            </Route>
+                    <Route path="/auth/forgot-password" exact={true}>
+                        <ForgotPasswordPage/>
+                    </Route>
 
-            <Route path="/auth/reset-password" exact={true}>
-              <DashboardPage />
-            </Route>
+                    <Route path="/auth/reset-password" exact={true}>
+                        <DashboardPage/>
+                    </Route>
 
-            <Route path="/auth/login" exact={true}>
-              <SignInPage />
-            </Route>
+                    <Route path="/auth/login" exact={true}>
+                        <SignInPage/>
+                    </Route>
 
-            <Route path="/auth/register" exact={true}>
-              <SignUpPage />
-            </Route>
+                    <Route path="/auth/register" exact={true}>
+                        <SignUpPage/>
+                    </Route>
 
-            <Route path="/" exact={true}>
-              <DashboardPage />
-            </Route>
+                    <Route path="/" exact={true}>
+                        <DashboardPage/>
+                    </Route>
 
-            <Route path="/orders/:orderId" exact={true}>
-              <OrderDetailPage />
-            </Route>
+                    <Route path="/orders/:orderId" exact={true}>
+                        <OrderDetailPage/>
+                    </Route>
 
-            <Route path="/orders" exact={true}>
-              <OrdersPage />
-            </Route>
+                    <Route path="/orders" exact={true}>
+                        <OrdersPage/>
+                    </Route>
 
-            <Route path="/products" exact={true}>
-              <ProductsPage />
-            </Route>
+                    <Route path="/products" exact={true}>
+                        <ProductsPage/>
+                    </Route>
 
-            <Route path="/products/:productId" exact={true}>
-              <ProductDetailPage />
-            </Route>
+                    <Route path="/products/:productId" exact={true}>
+                        <ProductDetailPage/>
+                    </Route>
 
-            <Route path="/products/:productId/edit" exact={true}>
-              <UpdateProductPage />
-            </Route>
+                    <Route path="/products/:productId/edit" exact={true}>
+                        <UpdateProductPage/>
+                    </Route>
 
-            <Route path="/product/new" exact={true}>
-              <CreateProductPage />
-            </Route>
+                    <Route path="/product/new" exact={true}>
+                        <CreateProductPage/>
+                    </Route>
 
-            <Route path="/whats-new" exact={true}>
-              <WhatsNewPage />
-            </Route>
-          </Switch>
-        </ScrollToTop>
-      </BrowserRouter>
-  );
+                    <Route path="/whats-new" exact={true}>
+                        <WhatsNewPage/>
+                    </Route>
+
+                    <Route path="/messages" exact={true}>
+                        <MessagesPage/>
+                    </Route>
+
+                    <Route path="/reviews" exact={true}>
+                        <ReviewsPage/>
+                    </Route>
+                </Switch>
+            </ScrollToTop>
+        </BrowserRouter>
+    );
 }
 
 export default App;

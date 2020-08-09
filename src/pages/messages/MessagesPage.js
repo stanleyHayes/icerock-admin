@@ -4,9 +4,9 @@ import {Container, Grid} from "@material-ui/core";
 import Order from "../../components/shared/Order";
 import {Pagination} from "@material-ui/lab";
 import {connect} from "react-redux";
-import Review from "../../components/shared/Review";
+import Message from "../../components/shared/Message";
 
-const ReviewsPage = ({reviews, loading}) => {
+const MessagesPage = ({messages, loading}) => {
 
     const [page, setPage] = useState(1);
 
@@ -25,19 +25,19 @@ const ReviewsPage = ({reviews, loading}) => {
 
                         <Grid container={true} spacing={3}>
                             {
-                                (!reviews.length) ? (
+                                (!messages.length) ? (
                                     <Grid container={true} item={true} xs={12} alignItems="center" justify="center">
                                         <Grid item={true}>
                                             <p className="uppercase font-weight-bold font-size-medium grey-text">
-                                                No Reviews Available
+                                                No Messages Available
                                             </p>
                                         </Grid>
                                     </Grid>
                                 ) : (
-                                    reviews.map((review, index) => {
+                                    messages.map((message, index) => {
                                         return (
                                             <Grid key={index} item={true} xs={12} md={6} lg={4}>
-                                                <Review review={review}/>
+                                                <Message message={message}/>
                                             </Grid>
                                         )
                                     })
@@ -45,6 +45,7 @@ const ReviewsPage = ({reviews, loading}) => {
                             }
                         </Grid>
                     </Grid>
+
                     <div className="padding-vertical-large">
                         <Container>
                             <Grid container={true} justify="center">
@@ -68,12 +69,12 @@ const ReviewsPage = ({reviews, loading}) => {
     )
 }
 
-
 const mapStateToProps = state => {
     return {
-        reviews: state.reviews.reviews,
-        loading: state.reviews.loading
+        messages: state.messages.messages,
+        loading: state.orders.loading
     }
 }
 
-export default connect(mapStateToProps)(ReviewsPage);
+export default connect(mapStateToProps)(MessagesPage);
+
