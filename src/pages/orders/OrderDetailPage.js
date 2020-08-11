@@ -60,9 +60,6 @@ function OrderDetailPage({order}) {
 
     const {owner, products, createdAt, issues, status, totalPrice, orderID} = order;
 
-    console.log(orderId);
-
-    console.log(issues);
     return (
         <Layout>
             <div className={classes.container}>
